@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
-import Carousel from '../carousel'
+// import Carousel from '../carousel'
 
 const HomeScreen = () => {
     return (
@@ -18,9 +18,9 @@ const HomeScreen = () => {
                             textAlign: 'center',
                             marginTop: '20%'
                         }}
-                    >Cities Screen</Text>
+                    >User Screen</Text>
                 </View>
-                <Carousel></Carousel>
+                {/* <Carousel></Carousel> */}
             </ImageBackground>
         </View>
     );

@@ -5,7 +5,8 @@ import { NavigationContainer } from "@react-navigation/native"
 //Screens
 import HomeScreen from "./components/screens/HomeScreen"
 import CitiesScreen from "./components/screens/CitiesScreen"
-import StackScreen from "./components/screens/StackScreen"
+import UseScreen from "./components/screens/UserScreen"
+import StackScreen from "./components/screens/UserScreen"
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -41,17 +42,17 @@ function MyTabs() {
                     tabBarIcon: ({ color, size }) =>(
                         <MaterialCommunityIcons name="airplane" size={24} color="#ffc107" />
                     ),
-                    headerShown: false,
+                    headerShown: true,
                 }}/>
                 <Tab.Screen
                 name="User"
-                component={CitiesScreen}
+                component={UseScreen}
                 options={{
                     tabBarLabel: 'User',
                     tabBarIcon: ({ color, size }) =>(
                         <MaterialCommunityIcons name="account" size={24} color="#ffc107" />
                     ),
-                    headerShown: false,
+                    headerShown: true,
                 }}/>
 
         </Tab.Navigator>

@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, TouchableNativeFeedback, ScrollView, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import Carousel from '../carousel'
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
 
     const navigation = useNavigation()
 
@@ -10,10 +11,12 @@ const HomeScreen = () => {
         <>
             <View >
                 <ImageBackground
-                    source={require('../assets/playa.jpg')}
+                    resizeMode="cover"
+                    source={require('../../assets/playa.jpg')}
                     style={{
 
-                        height: '100%'
+                        height: '100%',
+                        width: '100%'
                     }}>
                     <View>
 
@@ -21,14 +24,14 @@ const HomeScreen = () => {
                             style={{
                                 fontSize: 100,
                                 textAlign: 'center',
-                                marginTop: '60%',
+                                marginTop: '20%',
                                 color: 'white',
 
                             }}
                         >My <Text style={{
                             fontSize: 110,
                             textAlign: 'center',
-                            marginTop: '60%',
+                            marginTop: '20%',
                             color: '#ffc107',
                             borderColor: 'black'
 
@@ -42,27 +45,30 @@ const HomeScreen = () => {
                         }}>Find your perfect trip, designed by insiders who know and love their cities!</Text>
 
                         <View>
-                            <TouchableNativeFeedback onPress={() => navigation.navigate('Cities')}>
-                                <View style={styles.button1}>
-                                    <Text style={styles.textBut}>¡ CLICK TO SEE MORE !</Text>
-                                </View>
-                            </TouchableNativeFeedback>
+                            <TouchableOpacity>
+                                <TouchableNativeFeedback onPress={() => navigation.navigate('Cities')}>
+                                    <View style={styles.button1}>
+                                        <Text style={styles.textBut}>¡ CLICK TO SEE MORE !</Text>
+                                    </View>
+                                </TouchableNativeFeedback>
+                            </TouchableOpacity>
                         </View>
+                        <View>
+                            <Text style={{
+                                fontWeight: 'bold',
+                                fontSize: 50,
+                                textAlign: 'center',
+                                marginTop: '5%',
+                                color: 'white',
+                            }}>Popular MyTineraries</Text>
 
+                        </View>
+                    </View>
+                    <View>
+                        <Carousel></Carousel>
                     </View>
                 </ImageBackground>
-
             </View>
-            <View>
-                <ImageBackground
-                    source={require('../assets/playa.jpg')}
-                    style={{
-
-                        height: '100%'
-                    }}>
-                </ImageBackground>
-            </View>
-
         </>
     );
 }
