@@ -1,28 +1,21 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
-import Carousel from '../carousel'
+import Card from '../card'
 
 const HomeScreen = () => {
     return (
-        <View>
-            <ImageBackground
-                source={require('../../assets/fondo.jpg')}
-                style={{
-                    backgroundColor: '#0000002f',
-                    height: '100%'
-                }}>
-                <View>
-                    <Text
-                        style={{
-                            fontSize: 30,
-                            textAlign: 'center',
-                            marginTop: '20%'
-                        }}
-                    >Cities Screen</Text>
-                </View>
-                <Carousel></Carousel>
-            </ImageBackground>
-        </View>
+        <>
+            <View>
+                <Text
+                    style={{
+                        fontSize: 40,
+                        textAlign: 'center',
+                        
+                    }}
+                >Cities Screen</Text>
+            </View>
+            <Card></Card>
+        </>
     );
 }
 

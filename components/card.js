@@ -9,8 +9,23 @@ import {
     SafeAreaView,
     Animated,
 } from "react-native";
+
 import { LinearGradient } from "expo-linear-gradient";
-import data from './datos'
+
+const imagenes = [
+    "https://images6.alphacoders.com/911/thumb-1920-911616.jpg",
+    "https://images.alphacoders.com/542/thumb-1920-542032.jpg",
+    "https://pymstatic.com/74245/conversions/psicologos-cordoba-argentina-default.jpg",
+    "https://www.nomadsmaldives.com/HTML/img/trips/honeymoon/luna-de-miel-ideal-maldivas_FB.jpg",
+    "https://www.preventionweb.net/sites/default/files/styles/landscape_16_9/public/77772_largeImage.jpg?itok=JLGPRFxI",
+    "https://cdni.russiatoday.com/rbthmedia/images/web/es-rbth/images/2016-07/top/plaza_roja_g1exdk_1300.jpg",
+    "https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?cs=srgb&dl=pexels-vlad-alexandru-popa-1486222.jpg&fm=jpg",
+    "https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900",
+    "https://www.miviaje.info/wp-content/uploads/2019/03/rio-amazonas-cruceros.jpg",
+    "https://www.viajaraitalia.com/wp-content/uploads/2011/05/Colosseum_in_Rome_Italy.jpg",
+    "https://static.onecms.io/wp-content/uploads/sites/28/2021/07/27/lima-peru-LIMATG0721.jpg",
+    "https://fondosmil.com/fondo/12425.jpg"
+];
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -41,7 +56,7 @@ function Backdrop({ scrollX }) {
                 marginTop: '5%',
                 color: 'white',
             }}>Popular MyTineraries</Text>
-            {data.map((cities, index) => {
+            {imagenes.map((imagen, index) => {
                 const inputRange = [
                     (index - 1) * ANCHO_CONTENEDOR,
                     index * ANCHO_CONTENEDOR,
@@ -55,8 +70,8 @@ function Backdrop({ scrollX }) {
                 return (
 
                     <Animated.Image
-                        key={cities.id}
-                        source={{ uri: cities.image }}
+                        key={index}
+                        source={{ uri: imagen }}
                         style={[
                             { width: width, height: ALTURA_BACKDROP, opacity },
                             StyleSheet.absoluteFillObject,
@@ -89,7 +104,7 @@ export default function App() {
                     { useNativeDriver: true }
                 )}
                 showsHorizontalScrollIndicator={false}
-                horizontal={true}
+                horizontal={false}
                 snapToAlignment="start"
                 contentContainerStyle={{
                     paddingTop: 200,
@@ -98,7 +113,7 @@ export default function App() {
                 snapToInterval={ANCHO_CONTENEDOR}
                 decelerationRate={0}
                 scrollEventThrottle={16}
-                data={data}
+                data={imagenes}
                 keyExtractor={(item) => item}
                 renderItem={({ item, index }) => {
                     const inputRange = [
@@ -124,10 +139,10 @@ export default function App() {
                                     transform: [{ translateY: scrollY }],
                                 }}
                             >
-                                <Image source={{ uri: item.image }} style={styles.posterImage} />
+                                <Image source={{ uri: item }} style={styles.posterImage} />
                                 <Text style={{color: 'white', fontWeight: "bold", fontSize: 26 }}>
-                                    {item.name}
-                                    
+                                    {" "}
+                                    Título
                                 </Text>
                             </Animated.View>
                         </View>
