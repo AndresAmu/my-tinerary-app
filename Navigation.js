@@ -22,7 +22,6 @@ function MyTabs() {
                 tabBarColor: 'black',
                 tabBarActiveTintColor: 'black',
             }}>
-
             <Tab.Screen
                 name="Home"
                 component={HomeScreen}
@@ -30,7 +29,6 @@ function MyTabs() {
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="home" size={24} color="#ffc107" />
-
                     ),
                     headerShown: true,
                 }} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, TouchableNativeFeedback, ScrollView, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, ScrollView, SafeAreaView, ImageBackground } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Carousel from '../carousel'
 
@@ -9,66 +9,69 @@ const HomeScreen = (props) => {
 
     return (
         <>
-            <View >
-                <ImageBackground
-                    resizeMode="cover"
-                    source={require('../../assets/playa.jpg')}
-                    style={{
+            <SafeAreaView>
+                <ScrollView>
 
-                        height: '100%',
-                        width: '100%'
+                    <View style={{
+                        flex: 1,
                     }}>
-                    <View>
-
-                        <Text
+                        <ImageBackground
+                            source={require('../../assets/playa.jpg')}
+                            resizeMode='cover'
                             style={{
-                                fontSize: 100,
-                                textAlign: 'center',
-                                marginTop: '20%',
-                                color: 'white',
+                                flex: 1,
+                            }}>
 
-                            }}
-                        >My <Text style={{
-                            fontSize: 110,
-                            textAlign: 'center',
-                            marginTop: '20%',
-                            color: '#ffc107',
-                            borderColor: 'black'
+                            <View>
+                                <Text
+                                    style={{
+                                        fontSize: 100,
+                                        textAlign: 'center',
+                                        marginTop: '30%',
+                                        color: 'white',
+                                    }}
+                                >My <Text style={{
+                                    fontSize: 110,
+                                    textAlign: 'center',
+                                    marginTop: '30%',
+                                    color: '#ffc107',
+                                    borderColor: 'black'
 
-                        }}>Tinerary</Text></Text>
-                        <Text style={{
-                            fontWeight: 'bold',
-                            fontSize: 18,
-                            textAlign: 'center',
-                            marginTop: '20%',
-                            color: 'white',
-                        }}>Find your perfect trip, designed by insiders who know and love their cities!</Text>
+                                }}>Tinerary</Text></Text>
+                                <Text style={{
+                                    fontWeight: 'bold',
+                                    fontSize: 18,
+                                    textAlign: 'center',
+                                    marginTop: '30%',
+                                    color: 'white',
+                                }}>Find your perfect trip, designed by insiders who know and love their cities!</Text>
+
+                                <View>
+                                    <TouchableOpacity>
+                                        <TouchableNativeFeedback onPress={() => navigation.navigate('Cities')}>
+                                            <View style={styles.button1}>
+                                                <Text style={styles.textBut}>¡ CLICK TO SEE MORE !</Text>
+                                            </View>
+                                        </TouchableNativeFeedback>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </ImageBackground>
 
                         <View>
-                            <TouchableOpacity>
-                                <TouchableNativeFeedback onPress={() => navigation.navigate('Cities')}>
-                                    <View style={styles.button1}>
-                                        <Text style={styles.textBut}>¡ CLICK TO SEE MORE !</Text>
-                                    </View>
-                                </TouchableNativeFeedback>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <Text style={{
+
+
+                            <Carousel><Text style={{
                                 fontWeight: 'bold',
                                 fontSize: 50,
                                 textAlign: 'center',
                                 marginTop: '5%',
                                 color: 'white',
-                            }}>Popular MyTineraries</Text>
-
+                            }}>Popular MyTineraries</Text></Carousel>
                         </View>
                     </View>
-                    <View>
-                        <Carousel></Carousel>
-                    </View>
-                </ImageBackground>
-            </View>
+                </ScrollView>
+            </SafeAreaView>
         </>
     );
 }
@@ -85,6 +88,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 50,
         color: 'white',
+        marginTop: '50%',
+        marginBottom: '50%'
     },
     textBut: {
         color: 'white'
